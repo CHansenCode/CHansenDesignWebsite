@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&family=Poppins:ital,wght@0,100;0,300;0,500;1,300;1,500&display=swap");
+
+@import "./colors";
+@import "./config";
+@import "./fonts";
+@import "./form";
+@import "./global-names";
+@import "./scaling";
+@import "./scrollbar";
+@import "./elements";
+@import "./transitions";
+
+html {
+  font-size: 16px;
+}
+html * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html body > div {
+  > header {
+    position: fixed;
+    z-index: 10;
+    background-color: white;
+  }
+  > main {
+    position: relative;
+    z-index: 1;
+
+    padding-top: 8rem;
+
+    background-color: #fff;
+
+    min-height: 100vh;
+    margin-bottom: 12rem;
+    border-bottom: thin solid $primary;
+  }
+  > footer {
+    position: fixed;
+    z-index: 0;
+    left: 0;
+    bottom: 0;
+
+    height: 12rem;
+  }
+}
+
+@media screen and (max-width: 1040px) {
+  html body > div {
+    > main {
+      z-index: 1;
+      margin-bottom: 24rem;
+    }
+    > Footer {
+      height: 24rem;
+    }
+  }
+}
+
+@media screen and (max-width: 840px) {
+  main {
+    z-index: 1;
+  }
+}

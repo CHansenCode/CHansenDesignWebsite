@@ -1,0 +1,65 @@
+.fixedDiv {
+  position: fixed;
+  z-index: 999;
+
+  top: 0;
+  right: 0;
+
+  cursor: pointer;
+}
+
+.hamburger {
+  position: relative;
+  border: thin solid;
+  height: 3rem;
+  width: 3rem;
+}
+
+.hamburger span {
+  position: absolute;
+  height: 4px;
+  width: 80%;
+
+  box-shadow: inset 0 0 2px 0 currentColor;
+  border: thin solid;
+
+  transition: 0.5s ease;
+}
+
+.topBun {
+  top: 20%;
+  left: 10%;
+  transform: rotate(0);
+}
+.meat {
+  top: calc(50% - 2px);
+  left: 10%;
+  transition: 0.3s ease;
+}
+.botBun {
+  bottom: 20%;
+  left: 10%;
+  transform: rotate(0);
+}
+
+.topBunOpen {
+  top: calc(50% - 2px);
+  left: 10%;
+  transform: rotate(45deg);
+}
+.meatOpen {
+  top: calc(50% - 2px);
+  left: 10%;
+  opacity: 0;
+}
+.botBunOpen {
+  bottom: calc(50% - 2px);
+  left: 10%;
+  transform: rotate(-45deg);
+}
+
+@media screen and (min-width: 800px) {
+  .fixedDiv {
+    display: none;
+  }
+}

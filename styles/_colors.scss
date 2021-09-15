@@ -1,0 +1,40 @@
+// ** Elements
+$primary: rgb(30, 100, 150);
+$primary-bg: rgba(100, 150, 200, 1);
+$secondary: rgba(120, 120, 120, 1);
+$secondary-bg: rgba(120, 120, 120, 1);
+
+$font-color: rgb(70, 130, 170);
+
+// ** CANVAS
+$bg-color: rgb(253, 253, 253);
+$footer-bg-color: rgba(255, 255, 255, 0.95);
+
+// ** ON INTERACTION (hover, activate etc..)
+$interaction: rgb(230, 150, 60);
+$interaction-bg: rgba(230, 150, 60, 0.9);
+$active: rgb(230, 150, 60);
+$active-fade: rgba(230, 150, 60, 0.15);
+
+// ** INSTRUCTIVE COLORS
+
+$success: rgb(0, 150, 0);
+$success-fade: rgba(0, 150, 0, 0.08);
+
+$warning: rgb(200, 200, 50);
+$warning-fade: rgba(200, 200, 50, 0.15);
+
+$error: rgb(200, 0, 0);
+$error-fade: rgba(200, 0, 0, 0.15);
+
+//#region ** GLOBAL CS TAGS
+.success {
+  color: $success;
+}
+.warning {
+  color: $warning;
+}
+.error {
+  color: $error;
+}
+//#endregion
