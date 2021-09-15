@@ -25,7 +25,7 @@ Creates an export for upload in folder 'out'
 
 # How to use
 
-_OBS!_
+**OBS!**
 
 Desktop, mobile & footer navigation follows a pattern of (navConfig.map((link) => link)). This data is fetched from server based on configurations on the cms-template, hence no links will be rendered at first. One can add an array locally or hardcoded in the relevant component with the pattern [{ title: "Link-text", route:"/filename" }].
 
@@ -36,28 +36,25 @@ External social links (github etc) also follows this pattern and contains a thir
 (Outside of Next.js, which is treated as prerequisite)
 
 - axios
-
-For all CRUD towards server.
-
 - react-icons
-
-For footer-bar-icons.
-
-- react-redux & redux-thunk
-
-For redux-store & middleware
-
+- react-redux
+- redux-thunk
 - sass
-
-All styles are written in .scss and rendered on build-time
 
 # Styling rules
 
-- /root/styles
+All styles are written in .scss and rendered on build-time
 
-style.scss main compiler, also contains the root (html, body, div, header foot main) setup.
-\_colors: Site-wide ($primary) var's for setting the color schema.
+### '/styles'
 
-- /ComponentName/ComponentName.module.scss
+_only files containing variables to change are listed_
 
-Contains component scope styling & media queries.
+- style.scss: @import font, @import "\_colors" etc, document body setup & media queries
+
+- \_colors: color schema ($primary etc..)
+- \_fonts: Font schema ($font, h1,h2,h3,h4,h5,h6,p settings)
+- \_transitions: Transition schema (html \* {} followed by specific elements)
+
+### '/ComponentName/ComponentName.module.scss'
+
+component scope styling
