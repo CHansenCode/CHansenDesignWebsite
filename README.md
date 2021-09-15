@@ -1,34 +1,63 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#### Introduction
 
-## Getting Started
+This is the front-side in a MERN stack frontside application stack built on the Next.js framework. It's built on the idea of both fetching data at build-time, and some function that fetches data from an express server Live.
 
-First, run the development server:
+This is the work of a junior Front-End student and you are more then welcome to leave comments & critique to further the project.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+#### Getting Started
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# install
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- npm install
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+# run
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- npm run dev
 
-## Learn More
+Opens up in localhost:3000
 
-To learn more about Next.js, take a look at the following resources:
+# build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- npm run build
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+(npm build && npm export)
+Creates an export for upload in folder 'out'
 
-## Deploy on Vercel
+#### How to use
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- OBS!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Desktop, mobile & footer navigation follows a pattern of (navConfig.map((link) => link)). This data is fetched from server based on configurations on the cms-template, hence no links will be rendered at first. One can add an array locally or hardcoded in the relevant component with the pattern [{ title: "Link-text", route:"/filename" }].
+
+External social links (github etc) also follows this pattern and contains a third key (f.e type:"github") which matches string precisely to render corresponding react-icon.
+
+#### Dependencies
+
+(Outside of Next.js, which is treated as prerequisite)
+
+- axios
+
+For all CRUD towards server.
+
+- react-icons
+
+For footer-bar-icons.
+
+- react-redux & redux-thunk
+
+For redux-store & middleware
+
+- sass
+
+All styles are written in .scss and rendered on build-time
+
+## Styling rules
+
+- /root/styles
+
+style.scss main compiler, also contains the root (html, body, div, header foot main) setup.
+\_colors: Site-wide ($primary) var's for setting the color schema.
+
+- /ComponentName/ComponentName.module.scss
+
+Contains component scope styling & media queries.
