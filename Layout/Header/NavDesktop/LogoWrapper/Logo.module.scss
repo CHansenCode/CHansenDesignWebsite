@@ -1,0 +1,16 @@
+.logo {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: thin solid green;
+  > a {
+    border: thin solid red;
+    max-height: 80%;
+    max-width: 80%;
+    overflow: hidden;
+  }
+}

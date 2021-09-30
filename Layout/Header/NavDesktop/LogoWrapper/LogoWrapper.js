@@ -1,13 +1,16 @@
 import NavLink from "@/components/NavLink";
+import Logo from "@/public/Logo/Logo";
 
 import css from "./Logo.module.scss";
 
-const Logo = () => {
+const LogoWrapper = () => {
   return (
     <NavLink href="/">
-      <div className={css.logo}>LOGO</div>
+      <a href="">
+        <Logo />
+      </a>
     </NavLink>
   );
 };
 
-export default Logo;
+export default LogoWrapper;

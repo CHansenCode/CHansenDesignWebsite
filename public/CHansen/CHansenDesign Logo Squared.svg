@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+  <g id="graphics__ch" data-name="graphics_ ch">
+    <path d="M305,610C136.6,610,0,473.4,0,305S136.6,0,305,0V20C147.6,20,20,147.6,20,305S147.6,590,305,590H900v20Z" fill="#5aaabe"/>
+    <rect x="720" width="20" height="900" fill="#5aaabe"/>
+    <rect x="590" width="20" height="900" fill="#5aaabe"/>
+  </g>
+  <g id="graphics__dot" data-name="graphics_ dot">
+    <circle cx="450" cy="600" r="50" fill="#f5a091"/>
+  </g>
+</svg>

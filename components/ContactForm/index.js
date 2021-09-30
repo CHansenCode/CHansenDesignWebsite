@@ -86,6 +86,7 @@ const ContactForm = ({ Heading }) => {
         <Input
           label="name"
           id="name"
+          infoHover="min 2 chars"
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, [e.target.id]: e.target.value })}
         />

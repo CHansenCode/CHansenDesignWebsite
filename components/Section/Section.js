@@ -2,11 +2,11 @@ import SectionTitle from "./SectionTitle";
 
 import css from "./Section.module.scss";
 
-const Section = ({ myRef, title, id, minHeight, maxWidth, paddingBottom, fullWidth, center, column, children }) => {
+const Section = ({ myRef, title, id, minHeight, maxWidth, padding, fullWidth, center, column, children }) => {
   const propStyles = {
     maxWidth: fullWidth ? "100%" : maxWidth,
     minHeight: minHeight,
-    paddingBottom: paddingBottom,
+    padding: padding,
     display: center && "flex",
     alignItems: center && "center",
     justifyContent: center && "center",
@@ -23,7 +23,7 @@ const Section = ({ myRef, title, id, minHeight, maxWidth, paddingBottom, fullWid
 };
 
 Section.defaultProps = {
-  paddingBottom: "8vw",
+  padding: "0 0 8vw 0",
 };
 
 export default Section;

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+  <g id="graphics__bg" data-name="graphics_ bg">
+    <path d="M450,850C229.1,850,50,670.9,50,450S229.1,50,450,50,850,229.1,850,450,670.9,850,450,850Z" fill="#fff"/>
+  </g>
+  <g id="graphics__ch" data-name="graphics_ ch">
+    <g>
+      <path d="M803.9,636.7c-4.9,9.1-10,18-15.5,26.6" fill="#5aaabe"/>
+      <path d="M570,68.3c9,2.9,17.9,6,26.7,9.4" fill="#5aaabe"/>
+      <path d="M703.3,140.4c9.3,7.6,18.2,15.6,26.7,23.9" fill="#5aaabe"/>
+      <path d="M316.7,636.7C213.6,636.7,130,553.1,130,450s83.6-186.7,186.7-186.7V236.7c-117.9,0-213.4,95.5-213.4,213.3s95.5,213.3,213.4,213.3H570V636.7Z" fill="#5aaabe"/>
+      <rect x="596.7" y="636.7" width="106.7" height="26.67" fill="#5aaabe"/>
+      <path d="M730,636.7v26.6h58.4c5.5-8.6,10.6-17.5,15.5-26.6Z" fill="#5aaabe"/>
+      <path d="M596.7,636.7V77.7c-8.8-3.4-17.7-6.5-26.7-9.4V636.7Z" fill="#5aaabe"/>
+      <polygon points="570 663.3 570 831.7 596.7 822.3 596.7 663.3 570 663.3" fill="#5aaabe"/>
+      <rect x="570" y="636.7" width="26.7" height="26.67" fill="#5aaabe"/>
+      <path d="M596.7,822.3,570,831.7C579,828.8,587.9,825.7,596.7,822.3Z" fill="#5aaabe"/>
+      <path d="M730,636.7V164.3c-8.5-8.3-17.4-16.3-26.7-23.9V636.7Z" fill="#5aaabe"/>
+      <polygon points="703.3 663.3 703.3 759.6 730 735.7 730 663.3 703.3 663.3" fill="#5aaabe"/>
+      <rect x="703.3" y="636.7" width="26.7" height="26.67" fill="#5aaabe"/>
+      <path d="M730,735.7l-26.7,23.9C712.6,752,721.5,744,730,735.7Z" fill="#5aaabe"/>
+    </g>
+  </g>
+  <g id="graphics__dot" data-name="graphics_ dot">
+    <circle cx="445.8" cy="650.7" r="46.6" fill="#f5a091"/>
+  </g>
+</svg>

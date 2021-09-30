@@ -1,8 +1,8 @@
 // ** Elements
-$primary: rgb(30, 100, 150);
-$primary-bg: rgba(100, 150, 200, 1);
-$secondary: rgba(120, 120, 120, 1);
-$secondary-bg: rgba(120, 120, 120, 1);
+$primary: rgb(65, 170, 190);
+$primary-bg: rgba(65, 170, 190, 0.15);
+$secondary: rgb(245, 160, 145);
+$secondary-bg: rgba(245, 160, 145, 0.15);
 
 $font-color: rgb(70, 130, 170);
 
@@ -11,10 +11,10 @@ $bg-color: rgb(253, 253, 253);
 $footer-bg-color: rgba(255, 255, 255, 0.95);
 
 // ** ON INTERACTION (hover, activate etc..)
-$interaction: rgb(230, 150, 60);
-$interaction-bg: rgba(230, 150, 60, 0.9);
-$active: rgb(230, 150, 60);
-$active-fade: rgba(230, 150, 60, 0.15);
+$interaction: $secondary;
+$interaction-bg: $secondary-bg;
+$active: $secondary;
+$active-fade: $secondary-bg;
 
 // ** INSTRUCTIVE COLORS
 
