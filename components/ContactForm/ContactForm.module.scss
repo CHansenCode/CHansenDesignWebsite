@@ -21,29 +21,18 @@
   }
 }
 
-.select {
-  h5 {
-    margin-bottom: 0.25rem;
-  }
-  > button {
-    padding: 0.5rem;
-    margin-right: 0.5rem;
-  }
-}
-
-.buttonsWrapper {
+.wrapper_btns {
   margin-top: 1rem;
   display: flex;
   justify-content: space-between;
   width: 100%;
 
-  .send,
-  .clear {
+  button {
     height: 4rem;
     padding: 1rem 2rem;
     border-radius: 0.1rem;
   }
-  .send {
+  .send_btn_invalid {
     color: gray;
     border: thin dashed gray;
     pointer-events: none;

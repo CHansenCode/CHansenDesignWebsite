@@ -1,8 +1,18 @@
 import css from "./Select.module.scss";
 
-const Select = ({ text, onClick, truthy }) => {
+const Select = ({ text, valid, children }) => {
+  return <div className={`${valid ? css.active : null}`}>{children}</div>;
+};
+
+export const Option = ({ text, active, onClick }) => {
+  const style = {
+    padding: "0.25rem 0.5rem",
+    textTransform: "capitalize",
+    borderRadius: "0.25rem",
+    marginRight: "0.5rem",
+  };
   return (
-    <button className={`${truthy ? css.active : null}`} onClick={onClick}>
+    <button style={style} className={`${active && "success-bg success"}`} onClick={onClick}>
       {text}
     </button>
   );

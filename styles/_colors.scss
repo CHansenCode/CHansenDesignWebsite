@@ -36,20 +36,26 @@ $error-bg: rgba(200, 0, 0, 0.15);
 .primary-bg {
   background: $primary-bg;
 }
-.secondary {
+.secondary,
+.active,
+.interaction {
   color: $secondary;
 }
-.secondary-bg {
+.secondary-bg,
+.active-bg,
+.interaction-bg {
   background: $secondary-bg;
 }
 //#endregion
 //#region ** green, yellow, red
 .success,
-.done {
+.done,
+.valid {
   color: $success;
 }
 .success-bg,
-.done-bg {
+.done-bg,
+.valid-bg {
   background: $success-bg;
 }
 .warning,

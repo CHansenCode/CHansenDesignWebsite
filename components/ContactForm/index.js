@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Input from "./Input/Input";
-import Select from "./Select/Select";
+import Select, { Option } from "./Select/Select";
 import Textarea from "./Textarea/Textarea";
 import Button from "../Button/Button";
 
 import css from "./ContactForm.module.scss";
+
+import { postContactForm } from "@/actions/contactForm";
 
 const ContactForm = ({ width }) => {
   const dispatch = useDispatch();
@@ -39,16 +41,16 @@ const ContactForm = ({ width }) => {
     // all but @ % . for emails
     var forbidden = /[!#$%^&*()_+\-=\[\]{};':"\\|,<>\/?]+/;
 
-    formData.contactInfo.length > 5 && !forbidden.test(formData.contactInfo)
+    formData.contactInfo.length > 4 && !forbidden.test(formData.contactInfo)
       ? setValid({ ...valid, contactInfo: true })
       : setValid({ ...valid, contactInfo: false });
   }, [formData.contactInfo]);
 
   useEffect(() => {
-    // all but .,:)? for messages
-    var forbidden = /[!@#$%^&*(_+\-=\[\]{};'"\\|<>\/]+/;
+    // all but .,:)?! for messages
+    var forbidden = /[@#$%^&*(_+\-=\[\]{};'"\\|<>\/]+/;
 
-    formData.message.length > 5 && !forbidden.test(formData.message)
+    formData.message.length > 9 && !forbidden.test(formData.message)
       ? setValid({ ...valid, message: true })
       : setValid({ ...valid, message: false });
   }, [formData.message]);
@@ -97,41 +99,40 @@ const ContactForm = ({ width }) => {
           <Input
             label="Contact Information"
             required
-            infoOnHover="min. 5 characters, only - & @ allowed"
+            infoOnHover="min. 5 characters and only - & @ allowed"
             valid={valid.contactInfo}
             id="contactInfo"
             value={formData.contactInfo}
             onChange={(e) => setFormData({ ...formData, [e.target.id]: e.target.value })}
           />
 
-          <div className={css.select}>
-            <h5>Select category</h5>
-            <Select
+          <Select>
+            <Option
               text="architecture"
-              valid={formData.category === "architecture"}
+              active={formData.category === "architecture" ? true : false}
               onClick={(e) => setFormData({ ...formData, category: "architecture" })}
             />
-            <Select
-              text="webdesign"
-              valid={formData.category === "webdesign"}
-              onClick={(e) => setFormData({ ...formData, category: "webdesign" })}
+            <Option
+              text="web dev"
+              active={formData.category === "webdev" ? true : false}
+              onClick={(e) => setFormData({ ...formData, category: "webdev" })}
             />
-            <Select
-              text="graphics"
-              valid={formData.category === "graphics"}
-              onClick={(e) => setFormData({ ...formData, category: "graphics" })}
+            <Option
+              text="Project proposal"
+              active={formData.category === "project" ? true : false}
+              onClick={(e) => setFormData({ ...formData, category: "project" })}
             />
-            <Select
-              text="Other"
-              valid={formData.category === "other"}
+            <Option
+              text="other"
+              active={formData.category === "other" ? true : false}
               onClick={(e) => setFormData({ ...formData, category: "other" })}
             />
-          </div>
+          </Select>
 
           <Textarea
             label="Message"
             required
-            infoOnHover="min. 10 characters, no special characters"
+            infoOnHover="min. 10 characters and only . , : ) ? ! allowed"
             valid={valid.message}
             rows="5"
             id="message"
@@ -140,25 +141,16 @@ const ContactForm = ({ width }) => {
           />
         </>
 
-        <div className={css.buttonsWrapper}>
+        <div className={css.wrapper_btns}>
           <Button
             text={allValid ? "Send!" : "Please fill out the form"}
-            className={`${css.send} ${allValid && css.valid}`}
+            className={`${!allValid && css.send_btn_invalid} ${allValid && "success-bg success"}`}
             onClick={(e) => handleSubmit(e)}
           />
 
           <Button text="Clear form" onClick={(e) => clear(e)} className={css.clear} />
         </div>
       </form>
-      <h4>
-        {formData.name}
-        <br />
-        {formData.category}
-        <br />
-        {formData.contactInfo}
-        <br />
-        {formData.message}
-      </h4>
     </div>
   );
 };
