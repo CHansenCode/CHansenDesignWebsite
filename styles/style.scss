@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&family=Poppins:ital,wght@0,100;0,300;0,500;1,300;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,600;1,300;1,400&display=swap");
 
 @import "./colors";
 @import "./config";
@@ -12,6 +12,7 @@
 
 html {
   font-size: 16px;
+  color: $primary;
 }
 html * {
   padding: 0;
@@ -29,13 +30,19 @@ html body > div {
     position: relative;
     z-index: 1;
 
-    padding-top: 8rem;
+    padding-top: 5rem;
 
     background-color: #fff;
 
     min-height: 100vh;
     margin-bottom: 12rem;
     border-bottom: thin solid $primary;
+
+    > section {
+      max-width: 1200px;
+      margin: 0 auto;
+      border: thin dashed lightgray;
+    }
   }
   > footer {
     position: fixed;

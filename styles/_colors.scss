@@ -19,22 +19,67 @@ $active-fade: $secondary-bg;
 // ** INSTRUCTIVE COLORS
 
 $success: rgb(0, 150, 0);
-$success-fade: rgba(0, 150, 0, 0.08);
+$success-bg: rgba(0, 150, 0, 0.08);
 
 $warning: rgb(200, 200, 50);
-$warning-fade: rgba(200, 200, 50, 0.15);
+$warning-bg: rgba(200, 200, 50, 0.15);
 
 $error: rgb(200, 0, 0);
-$error-fade: rgba(200, 0, 0, 0.15);
+$error-bg: rgba(200, 0, 0, 0.15);
 
-//#region ** GLOBAL CS TAGS
-.success {
+//#region ***** GLOBAL NAME TAGS
+
+//#region ** Color theme
+.primary {
+  color: $primary;
+}
+.primary-bg {
+  background: $primary-bg;
+}
+.secondary {
+  color: $secondary;
+}
+.secondary-bg {
+  background: $secondary-bg;
+}
+//#endregion
+//#region ** green, yellow, red
+.success,
+.done {
   color: $success;
 }
-.warning {
+.success-bg,
+.done-bg {
+  background: $success-bg;
+}
+.warning,
+.pending {
   color: $warning;
 }
-.error {
+.warning-bg,
+.pending-bg {
+  background: $warning-bg;
+}
+.error,
+.alert {
   color: $error;
+}
+.error-bg,
+.alert-bg {
+  background: $error-bg;
+}
+
+.interaction {
+  color: $secondary;
+}
+.interaction-bg {
+  color: $secondary-bg;
+}
+.visible {
+  opacity: 1;
+}
+.hide {
+  opacity: 0;
+  pointer-events: none;
 }
 //#endregion

@@ -1,6 +1,5 @@
-@import "/styles/colors";
-
 .outerDiv {
+  position: relative;
   max-width: 40rem;
   margin: 0 auto;
 }
@@ -33,22 +32,33 @@
 }
 
 .buttonsWrapper {
+  margin-top: 1rem;
   display: flex;
+  justify-content: space-between;
   width: 100%;
 
   > button {
+    height: 4rem;
     padding: 1rem 2rem;
     border-radius: 0.1rem;
-    margin-right: 1rem;
-    transform: scale(1);
-    &:hover {
-      transform: scale(1.03);
-    }
   }
-  .send:hover {
-    background-color: $success-fade;
+  .send {
+    color: gray;
+    border: thin dashed gray;
+    pointer-events: none;
   }
-  .clear:hover {
-    background-color: $warning-fade;
+  .clear {
+    width: 4rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: thin dashed;
+  }
+
+  .valid {
+    border: thin solid;
+    pointer-events: all;
   }
 }

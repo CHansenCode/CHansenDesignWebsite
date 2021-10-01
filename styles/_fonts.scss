@@ -1,11 +1,10 @@
 @import "./colors";
 
-$font: Lato, sans-serif;
+$font: poppins, sans-serif;
 
 html {
   font-size: 16px;
   font-family: $font;
-  color: $font-color;
   h1,
   h2,
   h3,

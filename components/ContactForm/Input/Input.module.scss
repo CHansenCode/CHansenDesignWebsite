@@ -1,0 +1,56 @@
+.div {
+  position: relative;
+  .header {
+    display: grid;
+    grid-template: "label required infoHover" 1fr / auto 1fr auto;
+    grid-gap: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+  .inputWrapper {
+    position: relative;
+  }
+}
+
+// HEADER
+.header {
+  .label {
+    grid-area: label;
+    font-weight: 700;
+  }
+  .required {
+    grid-area: required;
+    font-size: 0.75rem;
+    font-weight: 400;
+    text-align: left;
+  }
+  .infoHover {
+    grid-area: infoHover;
+  }
+}
+
+// Input / body
+.inputWrapper {
+  input {
+    width: 100%;
+  }
+  .checkmark {
+    position: absolute;
+    top: 0;
+    right: 0.75rem;
+    height: 100%;
+    width: 1rem;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+  }
+}
+
+.infoHover:hover {
+  cursor: help;
+  .infoText {
+    opacity: 1;
+  }
+  .infoIcon {
+    opacity: 0;
+  }
+}

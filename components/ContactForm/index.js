@@ -1,33 +1,31 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import Input from "@/components/Input/Input";
-import Select from "@/components/Select/Select";
-import Textarea from "@/components/Textarea/Textarea";
-import Button from "@/components/Button/Button";
+import Input from "./Input/Input";
+import Select from "./Select/Select";
+import Textarea from "./Textarea/Textarea";
+import Button from "../Button/Button";
 
 import css from "./ContactForm.module.scss";
-import axios from "axios";
 
-import { postContactForm } from "@/actions/contactForm.js";
+const ContactForm = ({ width }) => {
+  const dispatch = useDispatch();
 
-const ContactForm = ({ Heading }) => {
-  const [valid, setValid] = useState({
-    name: false,
-    contactInfo: false,
-    message: false,
-  });
-  const [allValid, setAllValid] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     category: "",
     contactInfo: "",
     message: "",
   });
+  //
+  const [valid, setValid] = useState({
+    name: false,
+    contactInfo: false,
+    message: false,
+  });
+  const [allValid, setAllValid] = useState(false);
 
-  const dispatch = useDispatch;
-
-  //#region VALIDATION
+  //#region ****************************************************** VALIDATION
   useEffect(() => {
     // all but '-' for double-names
     var forbidden = /[!@#$%^&*()_+\=\[\]{};':"\\|,.<>\/?]+/;
@@ -47,8 +45,8 @@ const ContactForm = ({ Heading }) => {
   }, [formData.contactInfo]);
 
   useEffect(() => {
-    // all but .,:) for messages
-    var forbidden = /[!@#$%^&*(_+\-=\[\]{};'"\\|<>\/?]+/;
+    // all but .,:)? for messages
+    var forbidden = /[!@#$%^&*(_+\-=\[\]{};'"\\|<>\/]+/;
 
     formData.message.length > 5 && !forbidden.test(formData.message)
       ? setValid({ ...valid, message: true })
@@ -58,106 +56,109 @@ const ContactForm = ({ Heading }) => {
   useEffect(() => {
     valid.name == true && valid.contactInfo == true && valid.message == true ? setAllValid(true) : setAllValid(false);
   }, [valid]);
+  //#endregion ********************************************************************
 
-  //#endregion
-
-  const onSubmit = (e, formData) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     dispatch(postContactForm(formData));
   };
+  function clear(e) {
+    e.preventDefault();
 
-  const clear = () => {
     setValid({
       name: false,
       contactInfo: false,
       message: false,
     });
+
     setFormData({
       name: "",
       category: "",
       contactInfo: "",
       message: "",
     });
-  };
+  }
 
   return (
-    <div className={css.outerDiv}>
+    <div className={css.div} style={width && { width: width }}>
       <form onSubmit={(e) => e.preventDefault()} className={css.form}>
-        <h3>Form title</h3>
-        <Input
-          label="name"
-          id="name"
-          infoHover="min 2 chars"
-          value={formData.name}
-          onChange={(e) => setFormData({ ...formData, [e.target.id]: e.target.value })}
-        />
-        <Input
-          label="Contact Information"
-          placeholder="email etc.."
-          id="contactInfo"
-          value={formData.contactInfo}
-          onChange={(e) => setFormData({ ...formData, [e.target.id]: e.target.value })}
-        />
+        <>
+          <h3>Contact Form</h3>
+          <Input
+            label="name"
+            required
+            infoOnHover="min. 2 characters"
+            valid={valid.name}
+            id="name"
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, [e.target.id]: e.target.value })}
+          />
 
-        <div className={css.select}>
-          <h5>Select category</h5>
-          <Select
-            text="architecture"
-            truthy={formData.category === "architecture"}
-            onClick={(e) => setFormData({ ...formData, category: "architecture" })}
+          <Input
+            label="Contact Information"
+            required
+            infoOnHover="min. 5 characters, only - & @ allowed"
+            valid={valid.contactInfo}
+            id="contactInfo"
+            value={formData.contactInfo}
+            onChange={(e) => setFormData({ ...formData, [e.target.id]: e.target.value })}
           />
-          <Select
-            text="webdesign"
-            truthy={formData.category === "webdesign"}
-            onClick={(e) => setFormData({ ...formData, category: "webdesign" })}
-          />
-          <Select
-            text="graphics"
-            truthy={formData.category === "graphics"}
-            onClick={(e) => setFormData({ ...formData, category: "graphics" })}
-          />
-          <Select
-            text="Other"
-            truthy={formData.category === "other"}
-            onClick={(e) => setFormData({ ...formData, category: "other" })}
-          />
-        </div>
 
-        <Textarea
-          label="Message"
-          rows="5"
-          id="message"
-          value={formData.message}
-          onChange={(e) => setFormData({ ...formData, [e.target.id]: e.target.value })}
-        />
+          <div className={css.select}>
+            <h5>Select category</h5>
+            <Select
+              text="architecture"
+              valid={formData.category === "architecture"}
+              onClick={(e) => setFormData({ ...formData, category: "architecture" })}
+            />
+            <Select
+              text="webdesign"
+              valid={formData.category === "webdesign"}
+              onClick={(e) => setFormData({ ...formData, category: "webdesign" })}
+            />
+            <Select
+              text="graphics"
+              valid={formData.category === "graphics"}
+              onClick={(e) => setFormData({ ...formData, category: "graphics" })}
+            />
+            <Select
+              text="Other"
+              valid={formData.category === "other"}
+              onClick={(e) => setFormData({ ...formData, category: "other" })}
+            />
+          </div>
+
+          <Textarea
+            label="Message"
+            required
+            infoOnHover="min. 10 characters, no special characters"
+            valid={valid.message}
+            rows="5"
+            id="message"
+            value={formData.message}
+            onChange={(e) => setFormData({ ...formData, [e.target.id]: e.target.value })}
+          />
+        </>
 
         <div className={css.buttonsWrapper}>
-          {allValid ? (
-            <Button
-              text={allValid ? "All good! Send!" : "Please fill in form"}
-              onClick={(e) => onSubmit(e)}
-              className={css.send}
-            />
-          ) : (
-            "please fill out form"
-          )}
+          <Button
+            text={allValid ? "Send!" : "Please fill out the form"}
+            className={`${css.send} ${allValid && css.valid}`}
+            onClick={(e) => handleSubmit(e)}
+          />
 
-          <Button text="Clear form" onClick={() => clear()} className={css.clear} />
+          <Button text="Clear form" onClick={(e) => clear(e)} className={css.clear} />
         </div>
       </form>
-      <IsValidToggle text="name: " truthy={valid.name} />
-      <IsValidToggle text="contact: " truthy={valid.contactInfo} />
-      <IsValidToggle text="message: " truthy={valid.message} />
-      <br />
-      <IsValidToggle text="allValid:" truthy={allValid} />
-    </div>
-  );
-};
-
-const IsValidToggle = ({ text, truthy }) => {
-  return (
-    <div style={{ display: "flex" }}>
-      <h4>{text}</h4>
-      <h4 className={truthy ? "success" : "error"}>{truthy ? "valid" : "invalid"}</h4>
+      <h4>
+        {formData.name}
+        <br />
+        {formData.category}
+        <br />
+        {formData.contactInfo}
+        <br />
+        {formData.message}
+      </h4>
     </div>
   );
 };

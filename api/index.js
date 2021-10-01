@@ -1,7 +1,7 @@
 import axios from "axios";
 
-import { api } from "../config";
+import { baseUrl } from "../config";
 
 //contact form
-const contactAPI = `${api}contact`;
+const contactAPI = `${baseUrl}contact`;
 export const postContactForm = (formData) => axios.post(contactAPI, formData);
