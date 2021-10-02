@@ -9,9 +9,12 @@ import Button from "../Button/Button";
 import css from "./ContactForm.module.scss";
 
 import { postContactForm } from "@/actions/contactForm";
+import { POST_CONTACT_FORM } from "@/actions/actionTypes";
 
 const ContactForm = ({ width }) => {
   const dispatch = useDispatch();
+
+  let sendingStatus = useSelector((state) => state.errorHandler.contactForm);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -60,10 +63,19 @@ const ContactForm = ({ width }) => {
   }, [valid]);
   //#endregion ********************************************************************
 
+  //region **** errorHandling
+  useEffect(() => {
+    if (sendingStatus == "success") {
+    } else if (sendingStatus == "failed") {
+    }
+  }, [sendingStatus]);
+  //#endregion
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(postContactForm(formData));
   };
+
   function clear(e) {
     e.preventDefault();
 
@@ -79,6 +91,9 @@ const ContactForm = ({ width }) => {
       contactInfo: "",
       message: "",
     });
+
+    //reset errorHandler to empty
+    dispatch({ type: POST_CONTACT_FORM, value: "" });
   }
 
   return (
@@ -142,11 +157,21 @@ const ContactForm = ({ width }) => {
         </>
 
         <div className={css.wrapper_btns}>
-          <Button
-            text={allValid ? "Send!" : "Please fill out the form"}
-            className={`${!allValid && css.send_btn_invalid} ${allValid && "success-bg success"}`}
-            onClick={(e) => handleSubmit(e)}
-          />
+          {sendingStatus === "success" ? (
+            <div>
+              <h4 className="success">Success! </h4>
+              <p className="success">Your message has been delivered.</p>
+            </div>
+          ) : (
+            <Button
+              text={allValid ? "Send!" : "Please fill out the form"}
+              className={`${!allValid && css.send_btn_invalid} ${allValid && "success-bg success"}`}
+              onClick={(e) => handleSubmit(e)}
+            />
+          )}
+
+          {sendingStatus === "failed" && <div>failed</div>}
+          {sendingStatus === "sending" && <div>Sending</div>}
 
           <Button text="Clear form" onClick={(e) => clear(e)} className={css.clear} />
         </div>

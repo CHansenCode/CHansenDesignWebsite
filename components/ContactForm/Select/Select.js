@@ -12,7 +12,7 @@ export const Option = ({ text, active, onClick }) => {
     marginRight: "0.5rem",
   };
   return (
-    <button style={style} className={`${active && "success-bg success"}`} onClick={onClick}>
+    <button style={style} className={`${active && "success-bg interaction"}`} onClick={onClick}>
       {text}
     </button>
   );

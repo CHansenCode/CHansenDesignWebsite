@@ -3,11 +3,12 @@ import { POST_CONTACT_FORM } from "@/actions/actionTypes.js";
 import * as api from "@/api/index.js";
 
 export const postContactForm = (formData) => async (dispatch) => {
+  dispatch({ type: POST_CONTACT_FORM, payload: "sending" });
   try {
-    let res = await api.postContactForm(formData);
+    let { data } = await api.postContactForm(formData);
 
-    dispatch({ type: POST_CONTACT_FORM, payload: data });
+    dispatch({ type: POST_CONTACT_FORM, payload: "success" });
   } catch (error) {
-    console.log(error.message);
+    dispatch({ type: POST_CONTACT_FORM, payload: "failed" });
   }
 };
