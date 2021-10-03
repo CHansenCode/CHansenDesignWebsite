@@ -1,12 +1,15 @@
-import css from "./NavLinks.module.scss";
-
 import NavLink from "@/components/NavLink";
+
+import css from "./LinkList.module.scss";
 
 import { deskNav } from "@/config/index";
 
-const LinkList = () => {
+const LinkList = ({ ternary }) => {
+  const inlineStyle = {
+    top: ternary ? "100vh" : "0",
+  };
   return (
-    <ul className={css.ul}>
+    <ul className={css.ul} style={inlineStyle}>
       {deskNav.map((link, i) => (
         <NavLink exact key={`${link.title}${i}`} href={link.route}>
           {<li>{link.title}</li>}

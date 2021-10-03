@@ -11,7 +11,7 @@ const architecture = () => {
         </div>
       </Section>
       <Section center>
-        <div style={{ height: "200px", width: "200px", overflow: "hidden" }}>
+        <div style={{ position: "relative", height: "200px", width: "200px", overflow: "hidden" }}>
           <Image src="https://media.chansen.design/placeholder.jpg" width="200px" height="200px" layout="fill" />
         </div>
       </Section>

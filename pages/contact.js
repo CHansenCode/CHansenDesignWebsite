@@ -4,7 +4,7 @@ import ContactForm from "@/components/ContactForm";
 
 const contact = () => {
   return (
-    <Section right padding="10vh 0 0 0" center>
+    <Section right center>
       <ContactForm width="640px" />
     </Section>
   );

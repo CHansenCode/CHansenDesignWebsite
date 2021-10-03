@@ -4,7 +4,7 @@ import { siteName } from "../config";
 
 import Head from "next/head";
 
-import Header from "./Header";
+import Nav from "./Nav";
 import Footer from "./Footer";
 
 const Layout = ({ children }) => {
@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
         <title>cow</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
+      <Nav />
       {/* {lightbox && <LightboxModal data={lightbox} />} */}
       <main>{children}</main>
       <Footer />

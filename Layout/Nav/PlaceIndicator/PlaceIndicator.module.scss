@@ -10,3 +10,9 @@
     color: $interaction;
   }
 }
+
+@media screen and (max-width: 1020px) {
+  .wrapper {
+    padding-left: 1rem;
+  }
+}
