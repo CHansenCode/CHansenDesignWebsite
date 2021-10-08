@@ -1,8 +1,9 @@
 .base {
   transform: skew(0, 0);
   transition: 0.5s ease;
-  padding: 1rem;
+  box-shadow: 0 0 2rem -1rem currentColor;
 }
 .onHover {
-  transform: rotateX(10deg) skew(1deg, 1deg);
+  transform: rotateX(8deg) rotateY(5deg) skew(0.25deg, 0.25deg);
+  box-shadow: -2rem 2rem 4rem -1rem currentColor;
 }

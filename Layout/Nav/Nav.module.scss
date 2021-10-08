@@ -12,7 +12,9 @@
   width: 100vw;
 
   display: grid;
-  grid-template: "logo three indicator links login" 1fr / 200px 8rem 1fr auto auto;
+  grid-template: "logo three indicator links" 1fr / 200px 8rem 1fr auto;
+
+  background-color: rgba(255, 255, 255, 0.8);
 
   border-bottom: thin solid $primary;
   box-shadow: 0 0 3rem -2rem $primary;
@@ -37,6 +39,7 @@
   .hamburger {
     grid-area: hamburger;
     pointer-events: none;
+    display: none;
   }
   .mobileMenu {
     position: fixed;
@@ -79,6 +82,7 @@
     }
 
     .hamburger {
+      display: inline-block;
       pointer-events: all;
     }
 
@@ -107,5 +111,17 @@
     .links {
       display: none;
     }
+  }
+}
+
+.nav {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin-bottom: 0;
   }
 }

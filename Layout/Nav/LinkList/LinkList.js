@@ -1,4 +1,4 @@
-import NavLink from "@/components/NavLink";
+import NavLink from "./NavLink";
 
 import css from "./LinkList.module.scss";
 

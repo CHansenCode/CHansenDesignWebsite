@@ -7,7 +7,16 @@ import Section from "@/components/Section/Section";
 const webdesign = () => {
   return (
     <>
-      <Section column center padding="10vw 0 0 0">
+      <Section column padding="10vw">
+        <h2 className="secondary">Topic for this place</h2>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus voluptatibus ratione magnam molestias dolorem
+          optio vitae, blanditiis perspiciatis voluptatum atque reiciendis veniam in minima libero reprehenderit quos
+          eos inventore. Repellendus.
+        </p>
+      </Section>
+
+      <Section title="Ways of working" column center padding="10vw 0 0 0">
         <OnHoverTranslate>
           <StyledDiv padding="0">
             <CodeBlock
@@ -36,6 +45,7 @@ Const InteractiveMediaGallery = ({gallery}) => {
           </StyledDiv>
         </OnHoverTranslate>
       </Section>
+
       <Section>
         <code>
           <p>cow</p>

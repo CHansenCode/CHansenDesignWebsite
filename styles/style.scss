@@ -28,7 +28,7 @@ html body > div {
     position: relative;
     z-index: 1;
 
-    padding-top: 5rem;
+    padding-top: calc(5rem + 5vw);
 
     background-color: #fff;
 
@@ -39,6 +39,7 @@ html body > div {
     > section {
       max-width: 1200px;
       margin: 0 auto;
+      overflow: hidden;
     }
   }
   > footer {
@@ -48,6 +49,18 @@ html body > div {
     bottom: 0;
 
     height: 12rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  html body > div {
+    main {
+      padding-right: 1rem;
+      padding-left: 1rem;
+      section {
+        max-width: 100%;
+      }
+    }
   }
 }
 
@@ -67,4 +80,18 @@ html body > div {
   main {
     z-index: 1;
   }
+}
+
+h1,
+h2 {
+  margin-bottom: 2vw;
+}
+h3,
+h4 {
+  margin-bottom: 1.5vw;
+}
+p,
+h5,
+h6 {
+  margin-bottom: 1vw;
 }

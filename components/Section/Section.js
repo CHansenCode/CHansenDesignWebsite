@@ -14,8 +14,8 @@ const Section = ({ myRef, title, id, minHeight, maxWidth, padding, fullWidth, ce
   };
   return (
     <>
+      <section style={{ paddingLeft: "1rem" }}>{title && <SectionTitle title={title} />}</section>
       <section className={css.section} ref={myRef} id={id} style={propStyles}>
-        {title && <SectionTitle title={title} />}
         {children}
       </section>
     </>

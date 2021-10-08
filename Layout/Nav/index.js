@@ -5,9 +5,7 @@ import NavLink from "@/components/NavLink";
 import MobileMenu from "./MobileMenu/MobileMenu";
 
 import LinkList from "./LinkList/LinkList";
-import LogoWrapper from "./LogoWrapper/LogoWrapper";
 import PlaceIndicator from "./PlaceIndicator/PlaceIndicator";
-import Login from "./Login/Login";
 import Logo from "@/public/Logo/Logo";
 import Hamburger from "@/components/Hamburger/Hamburger";
 
